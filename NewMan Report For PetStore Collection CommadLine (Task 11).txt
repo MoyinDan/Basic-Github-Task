@@ -1,0 +1,135 @@
+
+C:\Users\pc\Downloads\TeamGithub-MaryDaniel>newman run postman_collection(Task11).json -e postman_environment(Task11).json
+newman
+
+SwaggerPetstoreCollection(Task11)
+
+□ pet / {petId}
+└ Finds Pets by status
+  GET https://petstore.swagger.io/v2/pet/findByStatus?status= [200 OK, 3.28kB, 1648ms]
+  ┌
+  │ 9223372036854648000
+  │ ''
+  │ ''
+  └
+  √  Status code should be 200
+  √  Status code name should have an OK string
+  √  Check if response contains an array
+  √  Check if response array size is greater than 10
+  1. verify that response has a string available
+  √  Verify that response Content-Type is present
+  √  Content-Type header is application/json
+  2. verify that entry with data 8 has status equal available
+  √  Response time is less than 5000ms
+
+└ Find pet by ID
+  GET https://petstore.swagger.io/v2/pet/9223372036854648000 [200 OK, 582B, 398ms]
+  √  Status code should be 200
+  √  Status code name should have an OK string
+
+└ Updates a pet in the store with form data
+  POST https://petstore.swagger.io/v2/pet/9223372036854648000 [200 OK, 387B, 494ms]
+
+└ Deletes a pet
+  DELETE https://petstore.swagger.io/v2/pet/-11742134 [404 Not Found, 292B, 533ms]
+
+□ pet
+└ Update an existing pet
+  PUT https://petstore.swagger.io/v2/pet [200 OK, 582B, 318ms]
+  √  Status code should be 200
+  √  Status code name should have an OK string
+
+└ Add a new pet to the store
+  POST https://petstore.swagger.io/v2/pet [200 OK, 564B, 264ms]
+  ┌
+  │ 70278240
+  │ ''
+  │ ''
+  └
+  √  Status code should be 200
+  √  Status code name should have an OK string
+
+□ store / order / {orderId}
+└ Place an order for a pet
+  POST https://petstore.swagger.io/v2/store/order [200 OK, 457B, 337ms]
+  ┌
+  │ 17727444
+  └
+  √  Status code should be 200
+  √  Status code name should have an OK string
+
+└ Find purchase order by ID
+  GET https://petstore.swagger.io/v2/store/order/17727444 [200 OK, 457B, 223ms]
+  √  Status code should be 200
+  √  Status code name should have an OK string
+
+└ Delete purchase order by ID
+  DELETE https://petstore.swagger.io/v2/store/order/31537484 [404 Not Found, 390B, 410ms]
+
+□ store
+└ Returns pet inventories by status
+  GET https://petstore.swagger.io/v2/store/inventory [200 OK, 503B, 344ms]
+
+□ user / {username}
+└ Get user by user name
+  GET https://petstore.swagger.io/v2/user/eu anim voluptate ullamco amet [404 Not Found, 385B, 333ms]
+
+└ Updated user
+  PUT https://petstore.swagger.io/v2/user/eu anim voluptate ullamco amet [200 OK, 387B, 225ms]
+
+└ Delete user
+  DELETE https://petstore.swagger.io/v2/user/eu anim voluptate ullamco amet [404 Not Found, 292B, 236ms]
+
+□ user
+└ Create user
+  POST https://petstore.swagger.io/v2/user [200 OK, 387B, 350ms]
+
+└ Creates list of users with given input array
+  POST https://petstore.swagger.io/v2/user/createWithArray [200 OK, 370B, 432ms]
+
+└ Creates list of users with given input array
+  POST https://petstore.swagger.io/v2/user/createWithList [200 OK, 370B, 446ms]
+
+└ Logs user into the system
+  GET https://petstore.swagger.io/v2/user/login?username=eu anim voluptate ullamco amet&password=eu anim voluptate ullamco amet [200 OK, 471B, 345ms]
+
+└ Logs out current logged in user session
+  GET https://petstore.swagger.io/v2/user/logout [200 OK, 370B, 234ms]
+
+┌─────────────────────────┬─────────────────────┬─────────────────────┐
+│                         │            executed │              failed │
+├─────────────────────────┼─────────────────────┼─────────────────────┤
+│              iterations │                   1 │                   0 │
+├─────────────────────────┼─────────────────────┼─────────────────────┤
+│                requests │                  18 │                   0 │
+├─────────────────────────┼─────────────────────┼─────────────────────┤
+│            test-scripts │                   7 │                   0 │
+├─────────────────────────┼─────────────────────┼─────────────────────┤
+│      prerequest-scripts │                   0 │                   0 │
+├─────────────────────────┼─────────────────────┼─────────────────────┤
+│              assertions │                  19 │                   2 │
+├─────────────────────────┴─────────────────────┴─────────────────────┤
+│ total run duration: 9.1s                                            │
+├─────────────────────────────────────────────────────────────────────┤
+│ total data received: 4.65kB (approx)                                │
+├─────────────────────────────────────────────────────────────────────┤
+│ average response time: 420ms [min: 223ms, max: 1648ms, s.d.: 310ms] │
+└─────────────────────────────────────────────────────────────────────┘
+
+  #  failure                              detail
+
+ 1.  AssertionError                       verify that response has a string available
+                                          expected '[{"id":70278240,"category":{"id":38660659,"name":"incididunt"},"name":"","photoUrls":["commodo deserunt est culpa","proident non ex
+                                          esse"],"tags":[{"id":-33451794,"name":"irure minim"},{"id":-30679578,"name":"in cillum
+                                          nisi"}],"status":""},{"id":9223372036854647675,"name":"doggie","photoUrls":[],"tags":[],"status":""},{"id":9223372036854647716,"name":"doggie",…
+                                          incididunt ad"},"name":"","photoUrls":["Lorem sit","proident non aliquip reprehenderit"],"tags":[{"id":88168744,"name":"occaecat qui Ut
+                                          nisi"},{"id":-92387139,"name":"id fugiat"}],"status":""}]' to include 'available'
+                                          at assertion:4 in test-script
+                                          inside "pet / {petId} / Finds Pets by status"
+
+ 2.  AssertionError                       verify that entry with data 8 has status equal available
+                                          expected '' to deeply equal 'available'
+                                          at assertion:7 in test-script
+                                          inside "pet / {petId} / Finds Pets by status"
+
+C:\Users\pc\Downloads\TeamGithub-MaryDaniel>
